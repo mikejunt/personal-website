@@ -1,1 +1,7 @@
-<p>menu-toolbar works!</p>
+<mat-toolbar color="primary" class="toolbar-flex">
+    <div class="toolbar-item">Mike Juntunen</div>
+    <div class="toolbar-item">
+        <button mat-button (click)="navigate('projects')">Projects</button>
+        <button mat-button (click)="navigate('profile')">About Me</button>
+    </div>
+</mat-toolbar>
