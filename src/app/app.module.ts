@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button/';
+import { MatMenuModule } from '@angular/material/menu/';
+import { MatToolbarModule } from '@angular/material/toolbar/';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -27,18 +27,16 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     ProjectHighlightComponent,
     MenuToolbarComponent,
     FooterComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatButtonModule,
-
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
