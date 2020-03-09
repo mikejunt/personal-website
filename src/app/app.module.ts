@@ -7,7 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button/';
 import { MatMenuModule } from '@angular/material/menu/';
 import { MatToolbarModule } from '@angular/material/toolbar/';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -18,6 +20,8 @@ import { ProjectHighlightComponent } from './projects/project-highlight/project-
 import { MenuToolbarComponent } from './shared/components/menu-toolbar/menu-toolbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { ProjectMenuComponent } from './projects/project-menu/project-menu.component';
+import { LoginComponent } from './admin/login/login.component';
+import { AdminpanelComponent } from './admin/adminpanel/adminpanel.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,8 @@ import { ProjectMenuComponent } from './projects/project-menu/project-menu.compo
     MenuToolbarComponent,
     FooterComponent,
     ProjectMenuComponent,
+    LoginComponent,
+    AdminpanelComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,8 @@ import { ProjectMenuComponent } from './projects/project-menu/project-menu.compo
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
