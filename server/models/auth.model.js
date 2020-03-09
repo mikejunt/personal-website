@@ -1,10 +1,7 @@
 const bcrypt = require('bcrypt')
 
-function logIn(response, request) {
-    // temporary
-    bcrypt.hash(request.password, 10, (err, result) => {console.log(result)})
-    // real
-    bcrypt.compare(request.password, process.env.PWD, (err, result) => {
+function logIn(request,response) {
+    bcrypt.compare(request.body.password, process.env.admPWD, (err, result) => {
         if (err) {
             return response.send({ success: false, msg: "Error @ bcrypt compare" }
             )
@@ -12,7 +9,7 @@ function logIn(response, request) {
         if (!result) {
             return response.send({ success: false, msg: "Username or password invalid." })
         }
-        return response.send({ success: true, msg: "", favteam: res.rows[0].favteam })
+        return response.send({ success: true, msg: "Its Mike" })
     })
 }
 
