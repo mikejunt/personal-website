@@ -1,4 +1,18 @@
 .menu-container {
     max-width: 20%;
+}
 
+.mobile-menu-wrap {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    width: 32px;
+    height: 32px;
+}
+
+.mobile-menu {
+    position: sticky;
+    height: 32px;
+    width: 32px;
 }

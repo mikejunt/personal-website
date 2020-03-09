@@ -1,6 +1,9 @@
-<mat-toolbar color="primary" class="toolbar-flex">
-    <div class="toolbar-item">Mike Juntunen</div>
-    <div class="toolbar-item">
+<mat-toolbar color="primary" class="flex-container flex-between">
+    <div class="flex-auto flex-container">
+        <div class="mobile-spacing"></div>
+        <div class="flex-auto">Mike Juntunen</div>
+    </div>
+    <div class="flex-auto">
         <button mat-button (click)="navigate('projects')">Projects</button>
         <button mat-button (click)="navigate('profile')">About Me</button>
     </div>

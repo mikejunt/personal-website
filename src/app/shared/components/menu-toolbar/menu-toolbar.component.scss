@@ -1,9 +1,17 @@
-.toolbar-item {
+.flex-auto {
     flex: 0 0 auto;
 }
 
-.toolbar-flex {
+.flex-container {
     display: flex;
-    flex-direction: row;
+    flex-flow:  row nowrap;
+}
+
+.flex-between {
     justify-content: space-between;
+}
+
+.mobile-spacing {
+    flex: 0 0 32px;
+    height: 100%;
 }
