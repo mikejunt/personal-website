@@ -4,10 +4,12 @@
     </a>
     <mat-menu #mobilemenu="matMenu">
         <button mat-menu-item *ngFor="let project of projectlist"
-                            (click)="projnav(project.id)">{{project.title}}</button>
+            (click)="projnav(project.id)">{{project.title}}</button>
     </mat-menu>
 </div>
-
-<div class="menu-container" *ngIf="!mobileQuery.matches">
-    <app-project-menu></app-project-menu>
+<div class="projects-overview-wrapper">
+    <div class="menu-container" *ngIf="!mobileQuery.matches">
+        <app-project-menu></app-project-menu>
+    </div>
+    <div class="project-summary-container">Placeholder project data</div>
 </div>

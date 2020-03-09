@@ -1,5 +1,5 @@
 .menu-container {
-    max-width: 20%;
+    flex: 0 0 20%
 }
 
 .mobile-menu-wrap {
@@ -17,4 +17,14 @@
     width: 24px;
     padding: 0;
     cursor: pointer;
+}
+
+.project-summary-container {
+    flex: 1 1 80%;
+    height: 100vh;
+}
+
+.projects-overview-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
 }
