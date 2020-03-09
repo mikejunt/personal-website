@@ -1,9 +1,13 @@
-
 <div class="mobile-menu-wrap">
-    <a color="accent" (click)="log()" class="mobile-menu" *ngIf="mobileQuery.matches">
+    <a [matMenuTriggerFor]="mobilemenu" class="mobile-menu" *ngIf="mobileQuery.matches">
         <mat-icon>menu</mat-icon>
     </a>
+    <mat-menu #mobilemenu="matMenu">
+        <button mat-menu-item *ngFor="let project of projectlist"
+                            (click)="projnav(project.id)">{{project.title}}</button>
+    </mat-menu>
 </div>
+
 <div class="menu-container" *ngIf="!mobileQuery.matches">
     <app-project-menu></app-project-menu>
 </div>
