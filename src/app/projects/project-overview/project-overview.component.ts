@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import {MediaMatcher} from '@angular/cdk/layout';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-project-overview',
@@ -21,8 +21,7 @@ export class ProjectOverviewComponent implements OnInit {
   }
 
   log() {
-    console.log(this.mobileQuery)
-    console.log(this.mobileQueryListener)
+    console.log("mobile menu activated")
   }
   ngOnInit(): void {
   }

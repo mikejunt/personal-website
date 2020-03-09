@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button/';
 import { MatMenuModule } from '@angular/material/menu/';
 import { MatToolbarModule } from '@angular/material/toolbar/';
+import { MatIconModule } from '@angular/material/icon'
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -39,6 +40,7 @@ import { ProjectMenuComponent } from './projects/project-menu/project-menu.compo
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
+    MatIconModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {

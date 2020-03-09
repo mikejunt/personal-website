@@ -7,12 +7,14 @@
     top: 16px;
     left: 16px;
     z-index: 2;
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
 }
 
 .mobile-menu {
     position: sticky;
-    height: 32px;
-    width: 32px;
+    height: 24px;
+    width: 24px;
+    padding: 0;
+    cursor: pointer;
 }

@@ -1,2 +1,9 @@
-<div class="menu-container" *ngIf="!mobileQuery.matches"><app-project-menu></app-project-menu></div>
-<div class="mobile-menu-wrap"><button color="accent" class="mobile-menu" *ngIf="mobileQuery.matches"></button></div>
+
+<div class="mobile-menu-wrap">
+    <a color="accent" (click)="log()" class="mobile-menu" *ngIf="mobileQuery.matches">
+        <mat-icon>menu</mat-icon>
+    </a>
+</div>
+<div class="menu-container" *ngIf="!mobileQuery.matches">
+    <app-project-menu></app-project-menu>
+</div>
