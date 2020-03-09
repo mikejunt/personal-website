@@ -16,6 +16,7 @@ import { ProjectDetailComponent } from './projects/project-detail/project-detail
 import { ProjectHighlightComponent } from './projects/project-highlight/project-highlight.component';
 import { MenuToolbarComponent } from './shared/components/menu-toolbar/menu-toolbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { ProjectMenuComponent } from './projects/project-menu/project-menu.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     ProjectHighlightComponent,
     MenuToolbarComponent,
     FooterComponent,
+    ProjectMenuComponent,
   ],
   imports: [
     BrowserModule,
