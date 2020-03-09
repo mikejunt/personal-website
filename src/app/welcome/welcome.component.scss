@@ -1,0 +1,20 @@
+.welcome-page-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.welcome-landing {
+    flex: 0 0 100%;
+    min-height: 500px;
+}
+
+.project-highlight-wrapper {
+    flex: 0 0 100%;
+    min-height: 400px;
+}
+
+@media (min-width: 1000px) {
+    .project-highlight-wrapper {
+        flex: 0 0 33%;
+    }
+}
