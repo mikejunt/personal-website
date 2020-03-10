@@ -39,4 +39,22 @@ router.get('/feature', (req, res) => {
 })
 
 
+router.post('/delete', (req, res) => {
+    const doomed = req.body["delete"]
+    console.log(doomed)
+    Project.deleteMany({_id: { $in: doomed}},(err) =>{
+        if (err) {return res.send({success: false, msg: "Database error on delete."})}
+        else {return res.send({success: true, msg: "Successful deletion."})}
+    })
+})
+
+router.post('/update', (req,res) => {
+    const feature = req.body['feature'];
+    Project.updateMany({}, {highlight: false},(err, res) => {if (err) {return res.send({success: false, msg: "Error accessing DB."})}else {return}})
+    Project.updateMany({_id: { $in: feature}},{highlight: true},(err, result) => {
+    if (err) {return res.send({success: false, msg: "Error on DB write."})}
+    if (!result) {return res.send({success: false, msg: "Something went very wrong."})}
+    else return res.send({success: true, msg: "Updated successfully.", data: result})})
+})
+
 module.exports = router
