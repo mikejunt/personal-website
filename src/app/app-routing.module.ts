@@ -5,6 +5,7 @@ import { ProjectOverviewComponent } from './projects/project-overview/project-ov
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './admin/login/login.component';
 import { AdminpanelComponent } from './admin/adminpanel/adminpanel.component';
+import { AdminGuard } from './guards/admin.guard';
 
 
 const routes: Routes = [
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path: 'projects', component: ProjectOverviewComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'msj', component: LoginComponent },
-  { path: 'admin', component: AdminpanelComponent },
+  { path: 'admin', component: AdminpanelComponent, canActivate:[AdminGuard] },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' }
 ];
 
