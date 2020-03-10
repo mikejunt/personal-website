@@ -20,8 +20,7 @@ feature: Project
   constructor(private store: Store<AppState>, private router: Router) {this.features$ = this.store.select(Selectors.viewFeatures);
    }
 
-  ngOnInit(): void {  this.features$.subscribe(res=> {if (res) {this.feature = res[this.highlightid]}});
-  console.log(this.feature,"feature", this.highlightid, "highlightid")}
+  ngOnInit(): void {  this.features$.subscribe(res=> {if (res) {this.feature = res[this.highlightid]}})}
 
   projectnav(id: string) {
     this.store.dispatch(Actions.setViewedProject({project: id}))
