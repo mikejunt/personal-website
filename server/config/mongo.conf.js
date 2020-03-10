@@ -9,15 +9,44 @@ const options = {
     keepAliveInitialDelay: 300000,
 }
 
-mongoose.connect(process.env.MGDB_URI, options).then(res => console.log("DB Connection established"), (err) => console.log(err));
+mongoose.connect(process.env.MGDB_URI, options).then(res => {return}, (err) => console.log(err));
 
 const pool = mongoose.connection
 
-// const Cat = mongoose.model('project',  { name: String });
+function gracefulExit() {
+    mongoose.connection.close(() => {
+      console.log(
+        `Mongoose connection has disconnected through app termination`
+      );
+      process.exit(0);
+    });
+  }
 
-// const kitty = new Cat({ name: 'Zildjian' });
-// kitty.save().then(() => console.log('meow')).catch(err=>console.log(err));
+  mongoose.connection.on("connected", ref => {
+    console.log(
+      `Successfully connected to ${process.env.MGDBNAME} database on startup `
+    );
+  });
 
+  // If the connection throws an error
+  mongoose.connection.on("error", err => {
+    console.error(
+      `Failed to connect to ${process.env.MGDBNAME} database on startup `,
+      err
+    );
+  });
+
+  // When the connection is disconnected
+  mongoose.connection.on("disconnected", () => {
+    console.log(
+      `Mongoose default connection to ${
+        process.env.MGDBNAME
+      } database disconnected`
+    );
+  });
+
+  // If the Node process ends, close the Mongoose connection
+  process.on("SIGINT", gracefulExit).on("SIGTERM", gracefulExit)
 
 
 module.exports.pool = pool
