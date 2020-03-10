@@ -1,4 +1,5 @@
 <p>Highlight id: {{highlightid}}</p>
-<p>Title: {{feature.title}}</p>
+<p>Title: {{feature.title}} id: {{feature._id}}</p>
 <p>Description: {{feature.description}}</p>
-<p><a href="feature.url">Link Text</a></p>
+<p><a href="feature.url">Check Out the Project</a></p>
+<p><button (click)="projectnav(feature['_id'])">See the Details</button></p>
