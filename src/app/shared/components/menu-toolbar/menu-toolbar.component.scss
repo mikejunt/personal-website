@@ -1,0 +1,21 @@
+.flex-auto {
+    flex: 0 0 auto;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow:  row nowrap;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.mobile-spacing {
+    flex: 0 0 32px;
+    height: 100%;
+}
+
+.header-name {
+    cursor: pointer;
+}

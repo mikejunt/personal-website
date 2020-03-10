@@ -1,0 +1,17 @@
+.menu-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding: 8px;
+}
+
+.menu-button {
+    height: 80px;
+    width: 100%;
+}
+
+.menu-button-wrapper {
+    flex: 0 0 100%;
+    padding: 8px 0;
+    min-width: 132px;
+}

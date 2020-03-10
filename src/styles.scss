@@ -126,6 +126,7 @@ $mat-dark-theme-background: (
 @include mat-core($fontConfig);
 
 body {
+  margin: 0;
   --primary-color: #552583;
   --primary-lighter-color: #ccbeda;
   --primary-darker-color: #3b1666;

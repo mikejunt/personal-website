@@ -1,0 +1,17 @@
+<div class="login-panel">
+    <div class="login-field">
+        <mat-form-field>
+            <mat-label for="username">Who are you?</mat-label>
+            <input matInput [(ngModel)]="username">
+        </mat-form-field>
+    </div>
+    <div class="login-field">
+        <mat-form-field>
+            <mat-label for="password">Do you know?</mat-label>
+            <input matInput [(ngModel)]="password">
+        </mat-form-field>
+    </div>
+    <div class="login-field">
+        <button mat-raised-button color="primary" (click)="login()">Login</button>
+    </div>
+</div>
