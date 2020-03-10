@@ -13,5 +13,12 @@ router.post('/new', (req, res) => {
         {res.send({success: false, msg: "Failed to save to database."})}
     })
 })
+    router.get('/all',(req,res)=> {
+        Project.find({}).then(result=>{console.log(result),res.send({result})}, err=>{console.log(err);res.send({msg:"FAIL at find"})})
+    })
+
+    router.get('/feature', (req,res) => {
+        Project.find({highlight: true}).then(result=>{console.log(result);res.send(result)}, err => res.send({err}))
+    })
 
 module.exports = router
