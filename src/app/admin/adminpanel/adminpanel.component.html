@@ -2,22 +2,50 @@
     <div class="admin-field">
         <mat-form-field>
             <mat-label for="projectname">Project Title</mat-label>
-            <input matInput>
+            <input matInput name='projectname' [(ngModel)]='newProject.title'>
         </mat-form-field>
     </div>
     <div class="admin-field">
         <mat-form-field>
             <mat-label for="summary">Project Summary</mat-label>
-            <input matInput>
+            <input matInput name='summary' [(ngModel)]='newProject.summary'>
         </mat-form-field>
     </div>
     <div class="admin-field">
         <mat-form-field>
             <mat-label for="description">Project Description</mat-label>
-            <textarea matInput rows="8" cols="80"></textarea>
+            <textarea name='description' matInput rows="8" cols="80" [(ngModel)]='newProject.description'></textarea>
         </mat-form-field>
     </div>
     <div class="admin-field">
-    <button mat-raised-button color="accent">Submit</button>
+        <mat-form-field>
+            <mat-label for="proj-url">Project Website</mat-label>
+            <input matInput name='proj-url' [(ngModel)]='newProject.proj_url'>
+        </mat-form-field>
+    </div>
+    <div class="admin-field">
+        <mat-form-field>
+            <mat-label for="code-url">Repo URL</mat-label>
+            <input name='code-url' matInput [(ngModel)]='newProject.code_url'>
+        </mat-form-field>
+    </div>
+    <div class="admin-field">
+        <mat-form-field>
+            <mat-hint>Comma separated, No spaces</mat-hint>
+            <mat-label for="tags">Tags</mat-label>
+            <input name='tags' matInput [(ngModel)]='newProject.tags'>
+        </mat-form-field>
+        <div class="admin-field">
+            <mat-form-field>
+                <mat-label for="feature">Feature</mat-label>
+                <mat-select name='feature' [(ngModel)]='newProject.highlight'>
+                    <mat-option value="true">Yes</mat-option>
+                    <mat-option value="false">No</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="admin-field">
+        <button mat-raised-button color="accent" (click)="onSubmit()">Submit</button>
     </div>
 </div>

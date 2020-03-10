@@ -10,6 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar/';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -50,6 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {
       metaReducers,

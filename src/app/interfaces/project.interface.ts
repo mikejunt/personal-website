@@ -5,6 +5,6 @@ export interface Project {
     proj_url?: string,
     summary: string,
     description: string,
-    tags: string[],
+    tags: string[] | string,
     highlight: boolean
 }
