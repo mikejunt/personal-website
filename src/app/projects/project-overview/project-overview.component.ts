@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store';
 import { Project } from 'src/app/interfaces/project.interface';
 import { Store } from '@ngrx/store';
-import * as Selectors from '../../store/selectors'
+import * as Selectors from '../../store/selectors';
+import * as Actions from '../../store/actions'
 
 @Component({
   selector: 'app-project-overview',
@@ -31,7 +32,7 @@ export class ProjectOverviewComponent implements OnInit {
   }
 
   projnav(project: string) {
-    console.log("project:", project)
+    this.store.dispatch(Actions.setViewedProject({project: project}))
   }
 
   ngOnInit(): void {

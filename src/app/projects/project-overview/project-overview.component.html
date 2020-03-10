@@ -4,7 +4,7 @@
     </a>
     <mat-menu #mobilemenu="matMenu">
         <button mat-menu-item *ngFor="let project of projects"
-            (click)="projnav(project.id)">{{project.title}}</button>
+            (click)="projnav(project['_id'])">{{project.title}}</button>
     </mat-menu>
 </div>
 <div class="projects-overview-wrapper">
