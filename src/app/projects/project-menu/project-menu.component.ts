@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from 'src/app/services/projects.service';
 import { Project } from 'src/app/interfaces/project.interface';
 import { AppState } from 'src/app/store';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import * as Selectors from '../../store/selectors'
+import * as Selectors from '../../store/selectors';
+import * as Actions from '../../store/actions';
 
 @Component({
   selector: 'app-project-menu',
@@ -19,6 +19,10 @@ export class ProjectMenuComponent implements OnInit {
   this.projects$.subscribe(res=>this.projects=res) }
 
   ngOnInit(): void {
+  }
+
+  setViewProj(id: string) {
+    this.store.dispatch(Actions.setViewedProject({project: id}))
   }
 
 }

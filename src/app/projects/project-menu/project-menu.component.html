@@ -1,5 +1,6 @@
 <div class="menu-container">
-<div class="menu-button-wrapper" *ngFor="let project of projects">
-<button class="menu-button" mat-raised-button color="accent">{{project.title}}</button>
-</div>
+    <div class="menu-button-wrapper" *ngFor="let project of projects">
+        <button class="menu-button" mat-raised-button color="accent"
+            (click)="setViewProj(project['_id'])">{{project.title}}</button>
+    </div>
 </div>
