@@ -11,10 +11,12 @@ import * as Reducers from './reducers';
 
 export interface AppState {
   projects: Reducers.ProjectState
+  users: Reducers.UserState
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  projects: Reducers.projectReducer
+  projects: Reducers.projectReducer,
+  users: Reducers.userReducer
 };
 
 
