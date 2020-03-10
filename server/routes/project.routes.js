@@ -14,11 +14,15 @@ router.post('/new', (req, res) => {
     })
 })
     router.get('/all',(req,res)=> {
-        Project.find({}).then(result=>{console.log(result),res.send({result})}, err=>{console.log(err);res.send({msg:"FAIL at find"})})
+        Project.find({}).then(
+            result=> res.send({success: true, msg: "All projects retrieved.", data: result}), 
+            err=> res.send({success: false, msg: "Database did not return a response.", error: err}))
     })
 
     router.get('/feature', (req,res) => {
-        Project.find({highlight: true}).then(result=>{console.log(result);res.send(result)}, err => res.send({err}))
+        Project.find({highlight: true}).then(
+            result=> res.send({success: true, msg: "Features retrieved.", data: result}), 
+            err => res.send({success: false, msg: "Database did not return a response.", error: err}))
     })
 
 module.exports = router
