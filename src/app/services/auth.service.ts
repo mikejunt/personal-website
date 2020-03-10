@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from '../store';
+import * as Actions from '../store/actions'
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +10,9 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   login(username, password) {
-    console.log(username,password)
+    this.store.dispatch(Actions.setAdminUser())
     this.router.navigate(['/admin/'])
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private store: Store<AppState>) { }
 }

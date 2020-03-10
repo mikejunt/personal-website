@@ -1,51 +1,108 @@
-<div class="admin-wrapper">
-    <div class="admin-field">
-        <mat-form-field>
-            <mat-label for="projectname">Project Title</mat-label>
-            <input matInput name='projectname' [(ngModel)]='newProject.title'>
-        </mat-form-field>
-    </div>
-    <div class="admin-field">
-        <mat-form-field>
-            <mat-label for="summary">Project Summary</mat-label>
-            <input matInput name='summary' [(ngModel)]='newProject.summary'>
-        </mat-form-field>
-    </div>
-    <div class="admin-field">
-        <mat-form-field>
-            <mat-label for="description">Project Description</mat-label>
-            <textarea name='description' matInput rows="8" cols="80" [(ngModel)]='newProject.description'></textarea>
-        </mat-form-field>
-    </div>
-    <div class="admin-field">
-        <mat-form-field>
-            <mat-label for="proj-url">Project Website</mat-label>
-            <input matInput name='proj-url' [(ngModel)]='newProject.proj_url'>
-        </mat-form-field>
-    </div>
-    <div class="admin-field">
-        <mat-form-field>
-            <mat-label for="code-url">Repo URL</mat-label>
-            <input name='code-url' matInput [(ngModel)]='newProject.code_url'>
-        </mat-form-field>
-    </div>
-    <div class="admin-field">
-        <mat-form-field>
-            <mat-hint>Comma separated, No spaces</mat-hint>
-            <mat-label for="tags">Tags</mat-label>
-            <input name='tags' matInput [(ngModel)]='newProject.tags'>
-        </mat-form-field>
-        <div class="admin-field">
-            <mat-form-field>
-                <mat-label for="feature">Feature</mat-label>
-                <mat-select name='feature' [(ngModel)]='newProject.highlight'>
-                    <mat-option value="true">Yes</mat-option>
-                    <mat-option value="false">No</mat-option>
-                </mat-select>
-            </mat-form-field>
+<mat-tab-group>
+    <mat-tab label="New Project">
+        <div class="admin-wrapper">
+            <div class="admin-text-field">
+                <mat-form-field color="accent">
+                    <mat-label for="projectname">Project Title</mat-label>
+                    <input matInput name='projectname' [(ngModel)]='newProject.title'>
+                </mat-form-field>
+            </div>
+            <div class="admin-text-field">
+                <mat-form-field color="accent">
+                    <mat-label for="summary">Project Summary</mat-label>
+                    <input matInput name='summary' [(ngModel)]='newProject.summary'>
+                </mat-form-field>
+            </div>
+            <div class="admin-url-field">
+                <mat-form-field color="accent">
+                    <mat-label for="proj-url">Project Website</mat-label>
+                    <input matInput name='proj-url' [(ngModel)]='newProject.proj_url'>
+                </mat-form-field>
+            </div>
+            <div class="admin-url-field">
+                <mat-form-field color="accent">
+                    <mat-label for="code-url">Repo URL</mat-label>
+                    <input name='code-url' matInput [(ngModel)]='newProject.code_url'>
+                </mat-form-field>
+            </div>
+            <div class="admin-field">
+                <mat-form-field color="accent">
+                    <mat-hint>Comma separated, No spaces</mat-hint>
+                    <mat-label for="tags">Tags</mat-label>
+                    <input name='tags' matInput [(ngModel)]='newProject.tags'>
+                </mat-form-field>
+            </div>
+            <div class="admin-field">
+                    <mat-slide-toggle name='feature' [(ngModel)]='newProject.highlight'>Feature?</mat-slide-toggle>
+            </div>
+            <div class="admin-text-field">
+                <mat-form-field class="admin-text" color="accent">
+                    <mat-label for="description">Project Description</mat-label>
+                    <textarea class="admin-text" name='description' matInput
+                        [(ngModel)]='newProject.description'></textarea>
+                </mat-form-field>
+            </div>
+            <div class="admin-field">
+                <button mat-raised-button color="accent" (click)="onSubmit('new')">Submit</button>
+            </div>
         </div>
-    </div>
-    <div class="admin-field">
-        <button mat-raised-button color="accent" (click)="onSubmit()">Submit</button>
-    </div>
-</div>
+    </mat-tab>
+    <mat-tab label="New Project">
+        <div class="admin-wrapper">
+            <div class="admin-text-mod-field">
+                <mat-form-field color="accent">
+                    <mat-label for="projectname">Project Title</mat-label>
+                    <input matInput name='projectname' [(ngModel)]='modProject.title'>
+                </mat-form-field>
+            </div>
+            <div class="admin-mod-select">
+                <mat-form-field color="accent">
+                    <mat-label for="feature">Project to Edit</mat-label>
+                    <mat-select name='feature' (ngModelChange)="selProj($event)" [(ngModel)]='selproj'>
+                        <mat-option>Select a Project</mat-option>
+                        <mat-option *ngFor="let project of projects" value="{{project._id}}">{{project.title}}</mat-option>
+                        
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="admin-text-field">
+                <mat-form-field color="accent">
+                    <mat-label for="summary">Project Summary</mat-label>
+                    <input matInput name='summary' [(ngModel)]='modProject.summary'>
+                </mat-form-field>
+            </div>
+            <div class="admin-url-field">
+                <mat-form-field color="accent">
+                    <mat-label for="proj-url">Project Website</mat-label>
+                    <input matInput name='proj-url' [(ngModel)]='modProject.proj_url'>
+                </mat-form-field>
+            </div>
+            <div class="admin-url-field">
+                <mat-form-field color="accent">
+                    <mat-label for="code-url">Repo URL</mat-label>
+                    <input name='code-url' matInput [(ngModel)]='modProject.code_url'>
+                </mat-form-field>
+            </div>
+            <div class="admin-field">
+                <mat-form-field color="accent">
+                    <mat-hint>Comma separated, No spaces</mat-hint>
+                    <mat-label for="tags">Tags</mat-label>
+                    <input name='tags' matInput [(ngModel)]='modProject.tags'>
+                </mat-form-field>
+            </div>
+            <div class="admin-field">
+                    <mat-slide-toggle name='feature' [(ngModel)]='modProject.highlight'>Feature?</mat-slide-toggle>
+            </div>
+            <div class="admin-text-field">
+                <mat-form-field class="admin-text" color="accent">
+                    <mat-label for="description">Project Description</mat-label>
+                    <textarea class="admin-text" name='description' matInput
+                        [(ngModel)]='modProject.description'></textarea>
+                </mat-form-field>
+            </div>
+            <div class="admin-field">
+                <button mat-raised-button color="accent" (click)="onSubmit('mod')">Submit</button>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>
