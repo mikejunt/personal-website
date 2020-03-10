@@ -22,7 +22,11 @@ export class ProjectsService {
   }
 
   saveProject(project: Project) {
-    this.http.post('/api/projects/new', project).subscribe(res=>console.log(res,"newproject post"))
+    this.http.post('/api/projects/new', project).subscribe(res=>{return})
+  }
+
+  editProject(project: Project) {
+    this.http.post('/api/projects/edit', project).subscribe(res=>{return})
   }
 
 }
