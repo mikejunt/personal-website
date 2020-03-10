@@ -1,12 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const projectModel = require('../models/projects.schema')
+const Project = require('../models/projects.schema')
 
-router.post('/write', (req, res) => {
-    let object = {username: "Mike"}
-    console.log(req.body, "from projects path")
-    res.send({msg: "Hello from projects/write"})
-    // projectModel.save(object).then(()=>console.log("I sent it"))
+router.post('/new', (req, res) => {
+    let tags = req.body.tags.split(",")
+    let post = {...req.body, tags: tags}
+    project = new Project(post)
+    project.save().then(result=> {
+        if (result) { res.send({success: true, msg: "New project written to DB"})}
+    },
+    err => {if (err)
+        {res.send({success: false, msg: "Failed to save to database."})}
+    })
 })
 
 module.exports = router

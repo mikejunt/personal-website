@@ -1,13 +1,13 @@
-mongoose = require('mongoose')
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
+const projectSchema = new Schema({
+  title: String,
+  summary: String,
+  description: String,
+  tags: Array,
+  highlight: Boolean,
+  url: String,
+})
 
-let userSchema = mongoose.Schema({
-
-  local : {
-    username : { type : String, unique : true },
-  },
-  role : { type : String }
-}, {timestamps: true});
-
-
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Project', projectSchema);
