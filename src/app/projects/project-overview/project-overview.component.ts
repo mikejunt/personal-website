@@ -17,7 +17,7 @@ export class ProjectOverviewComponent implements OnInit {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
-    this.projectlist = [...this.projects.projects]
+
   }
 
   ngOnDestroy(): void {

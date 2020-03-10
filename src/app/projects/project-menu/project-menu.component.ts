@@ -10,7 +10,7 @@ import { Project } from 'src/app/interfaces/project.interface';
 export class ProjectMenuComponent implements OnInit {
   projects: Project[]
   
-  constructor(private project: ProjectsService) {this.projects = [...this.project.projects] }
+  constructor(private project: ProjectsService) { }
 
   ngOnInit(): void {
   }

@@ -1,35 +1,27 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Project } from '../interfaces/project.interface';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+// import * as Actions from '../store/actions';
+// import * as Selectors from '../store/selectors';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
 
-  projects: Project[] = [
-    {
-      id: "1",
-      title: "Baseball App",
-      url: "github.io/mikejunt",
-      summary: "A baseball stats and info site",
-      description: "A baseball stats and info website, with team profiles, searchable stats, and roster and transaction information from the MLB data API.  It utilizes Angular 9, Angular Material, @ngrx/store, and a postresql database with an express server backend."
-    },
-    {
-      id: "2",
-      title: "Park Reviews",
-      url: "github.io/mikejunt",
-      summary: "Yelp for Parks in the Omaha area",
-      description: "A review service for parks in the Omaha, NE area, created in Angular and using Google Firebase via Angular Fire."
-    },
-    {
-      id: "3",
-      title: "Simon",
-      url: "github",
-      summary: "Simon",
-      description: "Simon game in javascript"
-    }
-  ]
+  constructor(private http: HttpClient) { }
 
+  getProjects() {
+    this.http.get('/api/projects/all').subscribe(res=>console.log(res, "all projects"))
+  }
 
-  constructor() { }
+  getFeatures() {
+    this.http.get('/api/projects/feature').subscribe(res=>console.log(res,"features"))
+  }
+
+  saveProject(project: Object) {
+    this.http.post('/api/projects/new', project).subscribe(res=>console.log(res,"newproject post"))
+  }
+
 }

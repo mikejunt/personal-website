@@ -22,6 +22,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { ProjectMenuComponent } from './projects/project-menu/project-menu.component';
 import { LoginComponent } from './admin/login/login.component';
 import { AdminpanelComponent } from './admin/adminpanel/adminpanel.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { AdminpanelComponent } from './admin/adminpanel/adminpanel.component';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
+    HttpClientModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
