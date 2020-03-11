@@ -10,12 +10,17 @@
             </mat-chip-list>
         </div>
         <div class="flex-100 flex-row-container">
-            <div class="flex-50 flex-row-container flex-center">
+            <div class="flex-33 flex-row-container flex-center">
                 <a class="link-button" href="{{feature.code_url}}">
                     <button mat-raised-button color="accent">See Code</button>
                 </a>
             </div>
-            <div class="flex-50 flex-row-container flex-center">
+            <div class="flex-33 flex-row-container flex-center">
+                <div class="link-button">
+                    <button (click)="projectnav(highlightid)" mat-raised-button color="accent">More Details</button>
+                </div>
+            </div>
+            <div *ngIf="feature.proj_url != ''" class="flex-33 flex-row-container flex-center">
                 <a class="link-button" href="{{feature.proj_url}}">
                     <button mat-raised-button color="accent">See it Live</button>
                 </a>
