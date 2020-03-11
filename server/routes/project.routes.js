@@ -15,7 +15,9 @@ router.post('/new', (req, res) => {
 })
 
 router.post('/edit', (req, res) => {
-    let tags = req.body.tags.split(",")
+    let tagstring = req.body.tags
+    console.log(tagstring)
+    let tags = tagstring.split(",")
     tags.forEach(string => { string.trim()});
     let post = { ...req.body, tags: tags }
     console.log(post)
@@ -27,7 +29,7 @@ router.post('/edit', (req, res) => {
 
 
 router.get('/all', (req, res) => {
-    Project.find({},null,{sort: {highlight: -1}}).then(
+    Project.find({}).then(
         result => res.send({ success: true, msg: "All projects retrieved.", data: result }),
         err => res.send({ success: false, msg: "Database did not return a response.", error: err }))
 })
@@ -49,8 +51,7 @@ router.post('/delete', (req, res) => {
 
 router.post('/update', (req,res) => {
     const feature = req.body['feature'];
-    Project.updateMany({}, {highlight: false},(err, res) => {if (err) {return res.send({success: false, msg: "Error accessing DB."})}else {return}})
-    Project.updateMany({_id: { $in: feature}},{highlight: true},(err, result) => {
+    Project.updateMany({_id: { $in: feature}, highlight: false},{highlight: true},(err, result) => {
     if (err) {return res.send({success: false, msg: "Error on DB write."})}
     if (!result) {return res.send({success: false, msg: "Something went very wrong."})}
     else return res.send({success: true, msg: "Updated successfully.", data: result})})

@@ -14,27 +14,26 @@ export class ProjectsService {
   constructor(private http: HttpClient, private store: Store<AppState>) { }
 
   getProjects() {
-    this.http.get('/api/projects/all').subscribe(res=>{console.log("new project data on all",res);this.store.dispatch(Actions.saveProjects({projects: res['data']}))})
+    this.http.get('/api/projects/all').subscribe(res=>{this.store.dispatch(Actions.saveProjects({projects: res['data']}))})
   }
-
   getFeatures() {
-    this.http.get('/api/projects/feature').subscribe(res=>{console.log("new project data on feature",res);this.store.dispatch(Actions.saveFeatures({features: res['data']}))})
+    this.http.get('/api/projects/feature').subscribe(res=>{this.store.dispatch(Actions.saveFeatures({features: res['data']}))})
   }
 
   saveProject(project: Project) {
-    this.http.post('/api/projects/new', project).subscribe(res=>{this.getFeatures;this.getProjects})
+    this.http.post('/api/projects/new', project).subscribe(res=>{this.getFeatures;this.getProjects()})
   }
 
   editProject(project: Project) {
-    this.http.post('/api/projects/edit', project).subscribe(res=>{this.getFeatures;this.getProjects})
+    this.http.post('/api/projects/edit', project).subscribe(res=>{this.getFeatures;this.getProjects()})
   }
 
   deleteProjects(ids: string[]) {
-    this.http.post('/api/projects/delete', {delete: ids}).subscribe(res=>{console.log(res, "delete requests both");this.getFeatures;this.getProjects})
+    this.http.post('/api/projects/delete', {delete: ids}).subscribe(res=>{this.getFeatures();this.getProjects()})
   }
   
   setFeatureProjects(ids: string[]) {
-    this.http.post('/api/projects/update', {feature: ids}).subscribe(res=>{console.log(res,"setFeature requests both");this.getFeatures;this.getProjects})
+    this.http.post('/api/projects/update', {feature: ids}).subscribe(res=>{this.getFeatures();this.getProjects()})
   }
 
 }
