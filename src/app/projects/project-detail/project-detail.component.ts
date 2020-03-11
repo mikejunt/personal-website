@@ -14,21 +14,18 @@ export class ProjectDetailComponent implements OnInit {
   curproj$: Observable<string>
   curproj: string
   projects$: Observable<Project[]>
+  projects: Project[]
   project: Project
 
   constructor(private store: Store<AppState>) {
-  this.curproj$ = this.store.select(Selectors.viewCurrentProject)
-    this.curproj$.subscribe(res => this.curproj = res)
+    this.curproj$ = this.store.select(Selectors.viewCurrentProject)
     this.projects$ = this.store.select(Selectors.viewAllProjects)
-    this.projects$.subscribe(res => {
-      if (res != []) {
-        if (this.curproj === "") { this.project = res[0] }
-        else {
-          let filteredproj = res.filter(obj => obj._id === this.curproj)
-          this.project = filteredproj[0]
-        }
-      }
-    })
+    this.projects$.subscribe(res => {this.projects = [...res];if (this.curproj === ""){this.project = this.projects[0]}})
+    this.curproj$.subscribe(res => {
+    this.curproj = res;
+      if (res === "") {this.project = this.projects[0]} 
+      else { let filterproj = this.projects.filter(obj => obj._id === res)
+             this.project = filterproj[0]}})
   }
 
   ngOnInit(): void {
