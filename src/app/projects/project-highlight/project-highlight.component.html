@@ -1,5 +1,21 @@
-<p>Highlight id: {{highlightid}}</p>
-<p>Title: {{feature.title}} id: {{feature._id}}</p>
-<p>Description: {{feature.description}}</p>
-<p><a href="feature.code_url">Check Out the Project</a></p>
-<p><button (click)="projectnav(feature['_id'])">See the Details</button></p>
+<div class="project-panel">
+    <header class="project-header">{{feature.title}}</header>
+    <div class="project-content-blurb">{{feature.description}}</div>
+    <div class="project-chip-container">
+        <mat-chip-list>
+            <mat-chip color="accent" selected *ngFor="let tag of feature['tags'];index as i">{{feature.tags[i]}}
+            </mat-chip>
+        </mat-chip-list>
+        <div class="feature-link-button-container">
+            <div class="feature-link-button">
+                <a href="{{feature.code_url}}">
+                    <button mat-raised-button color="accent">See Code</button>
+                </a>
+            </div>
+            <div class="feature-link-button">
+                <a href="{{feature.proj_url}}">
+                    <button mat-raised-button color="accent">See it Live</button>
+                </a>
+            </div>
+        </div>
+    </div>
