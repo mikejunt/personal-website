@@ -33,7 +33,11 @@ export class ProjectsService {
   }
   
   setFeatureProjects(ids: string[]) {
-    this.http.post('/api/projects/update', {feature: ids}).subscribe(res=>{this.getFeatures();this.getProjects()})
+    this.http.post('/api/projects/grantfeature', {feature: ids}).subscribe(res=>{this.getFeatures();this.getProjects()})
+  }
+
+  removeFeatureProjects(ids: string[]) {
+    this.http.post('/api/projects/removefeature', {nofeature: ids}).subscribe(res=>{this.getFeatures();this.getProjects()})
   }
 
 }

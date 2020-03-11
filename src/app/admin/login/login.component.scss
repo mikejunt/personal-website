@@ -1,0 +1,33 @@
+.login-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 128px);
+}
+
+.login-panel {
+    flex: 0 1 500px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.login-field {
+    flex: 0 1 350px;
+}
+
+.login-text {
+    width: 100%;
+}
+
+.login-button-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-button-field {
+    flex: 0 0 80px;
+}
