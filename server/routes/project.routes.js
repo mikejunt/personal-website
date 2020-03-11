@@ -4,6 +4,7 @@ const Project = require('../models/projects.schema')
 
 router.post('/new', (req, res) => {
     let tags = req.body.tags.split(",")
+    tags = tags.filter(t=>t != "")
     let post = { ...req.body, tags: tags }
     const project = new Project(post)
     project.save().then(result => {
@@ -18,7 +19,8 @@ router.post('/edit', (req, res) => {
     let tags = req.body.tags
     if (typeof(tags) === "string") {
     tags = tags.split(",")
-    tags.forEach(string => { string.trim()})};
+    tags.forEach(string => { string.trim()})
+    tags = tags.filter(t=>t != "")};
     let post = { ...req.body, tags: tags }
     Project.findByIdAndUpdate(post._id, post, {new: true}, (err, result) => {
         if (err) {return res.send({success: false, msg: "Could not write to database."})}
