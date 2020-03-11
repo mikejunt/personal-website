@@ -1,33 +1,33 @@
-<mat-tab-group>
+<mat-tab-group backgroundColor="accent">
     <mat-tab label="New Project">
         <div class="admin-wrapper">
             <div class="admin-text-field">
-                <mat-form-field color="accent">
+                <mat-form-field class="admin-text-length" color="accent">
                     <mat-label for="projectname">Project Title</mat-label>
                     <input matInput name='projectname' [(ngModel)]='newProject.title'>
                 </mat-form-field>
             </div>
             <div class="admin-text-field">
-                <mat-form-field color="accent">
+                <mat-form-field class="admin-text-length" color="accent">
                     <mat-label for="summary">Project Summary</mat-label>
                     <input matInput name='summary' [(ngModel)]='newProject.summary'>
                 </mat-form-field>
             </div>
             <div class="admin-url-field">
-                <mat-form-field color="accent">
+                <mat-form-field class="admin-text-length" color="accent">
                     <mat-label for="proj-url">Project Website</mat-label>
                     <input matInput name='proj-url' [(ngModel)]='newProject.proj_url'>
                 </mat-form-field>
             </div>
             <div class="admin-url-field">
-                <mat-form-field color="accent">
+                <mat-form-field class="admin-text-length" color="accent">
                     <mat-label for="code-url">Repo URL</mat-label>
                     <input name='code-url' matInput [(ngModel)]='newProject.code_url'>
                 </mat-form-field>
             </div>
             <div class="admin-field">
-                <mat-form-field color="accent">
-                    <mat-hint>Comma separated, No spaces</mat-hint>
+                <mat-form-field class="admin-text-length" color="accent">
+                    <mat-hint>Comma separated</mat-hint>
                     <mat-label for="tags">Tags</mat-label>
                     <input name='tags' matInput [(ngModel)]='newProject.tags'>
                 </mat-form-field>
@@ -50,7 +50,7 @@
     <mat-tab label="Edit Project">
         <div class="admin-wrapper">
             <div class="admin-text-mod-field">
-                <mat-form-field color="accent">
+                <mat-form-field class="admin-text-length" color="accent">
                     <mat-label for="projectname">Project Title</mat-label>
                     <input matInput name='projectname' [(ngModel)]='modProject.title'>
                 </mat-form-field>
@@ -67,26 +67,26 @@
                 </mat-form-field>
             </div>
             <div class="admin-text-field">
-                <mat-form-field color="accent">
+                <mat-form-field class="admin-text-length" color="accent">
                     <mat-label for="summary">Project Summary</mat-label>
                     <input matInput name='summary' [(ngModel)]='modProject.summary'>
                 </mat-form-field>
             </div>
             <div class="admin-url-field">
-                <mat-form-field color="accent">
+                <mat-form-field class="admin-text-length" color="accent">
                     <mat-label for="proj-url">Project Website</mat-label>
                     <input matInput name='proj-url' [(ngModel)]='modProject.proj_url'>
                 </mat-form-field>
             </div>
             <div class="admin-url-field">
-                <mat-form-field color="accent">
+                <mat-form-field class="admin-text-length" color="accent">
                     <mat-label for="code-url">Repo URL</mat-label>
                     <input name='code-url' matInput [(ngModel)]='modProject.code_url'>
                 </mat-form-field>
             </div>
             <div class="admin-field">
-                <mat-form-field color="accent">
-                    <mat-hint>Comma separated, No spaces</mat-hint>
+                <mat-form-field class="admin-text-length" color="accent">
+                    <mat-hint>Comma separated</mat-hint>
                     <mat-label for="tags">Tags</mat-label>
                     <input name='tags' matInput [(ngModel)]='modProject.tags'>
                 </mat-form-field>
@@ -107,11 +107,21 @@
         </div>
     </mat-tab>
     <mat-tab label="Manage Projects">
-        <div *ngFor="let project of projects">
-            <span>{{project.title}}</span>
-            <mat-slide-toggle id="{{project._id}}" [(ngModel)]="project['highlight']">Feature</mat-slide-toggle>
-            <mat-checkbox [(ngModel)]="project['delete']">Delete</mat-checkbox>
+        <div *ngFor="let project of projects" class="admin-wrapper">
+            <div class="admin-toggle">
+                <span>{{project.title}}</span>
+            </div>
+            <div class="admin-toggle">
+                <mat-slide-toggle id="{{project._id}}" [(ngModel)]="project['highlight']">Feature</mat-slide-toggle>
+            </div>
+            <div class="admin-toggle">
+                <mat-checkbox [(ngModel)]="project['delete']">Delete</mat-checkbox>
+            </div>
         </div>
-        <button (click)="onSubmit('update')">I am a test</button>
+        <div class="toggle-button-wrapper">
+            <div class="toggle-button-container">
+                <button mat-raised-button color="primary" class="toggle-button" (click)="onSubmit('update')">Finalize</button>
+            </div>
+        </div>
     </mat-tab>
 </mat-tab-group>

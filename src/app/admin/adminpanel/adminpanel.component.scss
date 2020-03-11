@@ -36,3 +36,31 @@
     max-width: 750px;
     min-height: 180px;
 }
+
+.admin-toggle {
+    flex: 0 0 33%;
+    max-width: 220px;
+}
+
+.toggle-button-container {
+    display: flex;
+    flex-direction: row;
+    flex: 0 1 660px;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.toggle-button {
+    flex: 0 0 100px;
+}
+
+.toggle-button-wrapper {
+    max-width: 660px;
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-text-length {
+    width: 350px;
+}
