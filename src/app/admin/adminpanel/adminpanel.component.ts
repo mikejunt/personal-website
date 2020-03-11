@@ -80,12 +80,15 @@ export class AdminpanelComponent implements OnInit {
 
   submitUpdates() {
     let feature: string[] = []
+    let nofeature: string[] = []
     let todelete: string[] = []
     this.projects.forEach(obj => {
       if (obj['highlight']) { feature.push(obj._id) }
       if (obj['delete']) { todelete.push(obj._id) }
+      if (!obj['delete'] && !obj['highlight']) {nofeature.push(obj._id)}
     })
     this.projectsvc.setFeatureProjects(feature)
+    this.projectsvc.removeFeatureProjects(nofeature)
     this.projectsvc.deleteProjects(todelete)
   }
 

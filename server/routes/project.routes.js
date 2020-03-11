@@ -29,7 +29,7 @@ router.post('/edit', (req, res) => {
 
 
 router.get('/all', (req, res) => {
-    Project.find({}).then(
+    Project.find({},null,{sort: {highlight: -1}}).then(
         result => res.send({ success: true, msg: "All projects retrieved.", data: result }),
         err => res.send({ success: false, msg: "Database did not return a response.", error: err }))
 })
@@ -49,9 +49,17 @@ router.post('/delete', (req, res) => {
     })
 })
 
-router.post('/update', (req,res) => {
+router.post('/grantfeature', (req,res) => {
     const feature = req.body['feature'];
     Project.updateMany({_id: { $in: feature}, highlight: false},{highlight: true},(err, result) => {
+    if (err) {return res.send({success: false, msg: "Error on DB write."})}
+    if (!result) {return res.send({success: false, msg: "Something went very wrong."})}
+    else return res.send({success: true, msg: "Updated successfully.", data: result})})
+})
+
+router.post('/removefeature', (req,res) => {
+    const nofeature = req.body['nofeature'];
+    Project.updateMany({_id: { $in: nofeature}, highlight: true},{highlight: false},(err, result) => {
     if (err) {return res.send({success: false, msg: "Error on DB write."})}
     if (!result) {return res.send({success: false, msg: "Something went very wrong."})}
     else return res.send({success: true, msg: "Updated successfully.", data: result})})
