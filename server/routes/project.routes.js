@@ -41,7 +41,6 @@ router.get('/feature', (req, res) => {
 
 router.post('/delete', (req, res) => {
     const doomed = req.body["delete"]
-    console.log(doomed)
     Project.deleteMany({_id: { $in: doomed}},(err) =>{
         if (err) {return res.send({success: false, msg: "Database error on delete."})}
         else {return res.send({success: true, msg: "Successful deletion."})}

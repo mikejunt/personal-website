@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store';
 import * as Selectors from '../../store/selectors';
 import * as Actions from '../../store/actions'
+import * as qclone from 'qclone'
 
 @Component({
   selector: 'app-adminpanel',
@@ -14,7 +15,7 @@ import * as Actions from '../../store/actions'
 })
 export class AdminpanelComponent implements OnInit {
   projects$: Observable<Project[]>
-  projects: Project[]
+  projects: Project[] = []
   viewproj$: Observable<string>
   viewproj: string
   selproj: string
@@ -35,27 +36,29 @@ export class AdminpanelComponent implements OnInit {
   constructor(private projectsvc: ProjectsService, private store: Store<AppState>) {
     this.viewproj$ = this.store.select(Selectors.viewCurrentProject)
     this.projects$ = this.store.select(Selectors.viewAllProjects)
-    this.projects$.subscribe(res => this.projects = res)
-    this.viewproj$.subscribe(res => { this.viewproj = res; let filtered = this.projects.filter(obj => obj._id === this.viewproj);
-      if (filtered.length != 0) {Object.assign(this.modProject, filtered[0])}})
+    this.projects$.subscribe(res => { if (res.length != 0) { this.projects = qclone.qclone(res) } })
+    this.viewproj$.subscribe(res => {
+    this.viewproj = res; let filtered = this.projects.filter(obj => obj._id === this.viewproj);
+      if (filtered.length != 0) { this.modProject = qclone.qclone(filtered[0]) }
+    })
   }
 
   ngOnInit(): void {
-  this.newProject = { ...this.newProjectTemplate }
-  this.modProject = { ...this.newProjectTemplate }
+    this.newProject = { ...this.newProjectTemplate }
+    this.modProject = { ...this.newProjectTemplate }
   }
 
 
   submitNew() {
-    let project = { ...this.newProject }
+    let project = qclone.qclone(this.newProject)
     this.projectsvc.saveProject(project)
     this.newProject = { ...this.newProjectTemplate }
   }
 
   submitEdit() {
-    let project = {...this.modProject}
-    console.log("submitted to edit", project)
-    this.modProject = {...this.newProjectTemplate}
+    let project = qclone.qclone(this.modProject)
+    this.projectsvc.editProject(project)
+    this.modProject = { ...this.newProjectTemplate }
   }
 
 
@@ -66,11 +69,24 @@ export class AdminpanelComponent implements OnInit {
     if (mode === "mod") {
       this.submitEdit()
     }
+    if (mode === "update") {
+      this.submitUpdates()
+    }
   }
 
   selProj(event) {
-    this.store.dispatch(Actions.setViewedProject({project: event}))
+    this.store.dispatch(Actions.setViewedProject({ project: event }))
   }
 
+  submitUpdates() {
+    let feature: string[] = []
+    let todelete: string[] = []
+    this.projects.forEach(obj => {
+      if (obj['highlight']) { feature.push(obj._id) }
+      if (obj['delete']) { todelete.push(obj._id) }
+    })
+    this.projectsvc.setFeatureProjects(feature)
+    this.projectsvc.deleteProjects(todelete)
+  }
 
 }

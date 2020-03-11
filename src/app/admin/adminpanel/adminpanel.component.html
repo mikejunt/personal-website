@@ -33,7 +33,7 @@
                 </mat-form-field>
             </div>
             <div class="admin-field">
-                    <mat-slide-toggle name='feature' [(ngModel)]='newProject.highlight'>Feature?</mat-slide-toggle>
+                <mat-slide-toggle name='feature' [(ngModel)]='newProject.highlight'>Feature?</mat-slide-toggle>
             </div>
             <div class="admin-text-field">
                 <mat-form-field class="admin-text" color="accent">
@@ -60,8 +60,9 @@
                     <mat-label for="feature">Project to Edit</mat-label>
                     <mat-select name='feature' (ngModelChange)="selProj($event)" [(ngModel)]='selproj'>
                         <mat-option>Select a Project</mat-option>
-                        <mat-option *ngFor="let project of projects" value="{{project._id}}">{{project.title}}</mat-option>
-                        
+                        <mat-option *ngFor="let project of projects" value="{{project._id}}">{{project.title}}
+                        </mat-option>
+
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -91,7 +92,7 @@
                 </mat-form-field>
             </div>
             <div class="admin-field">
-                    <mat-slide-toggle name='feature' [(ngModel)]='modProject.highlight'>Feature?</mat-slide-toggle>
+                <mat-slide-toggle name='feature' [(ngModel)]='modProject.highlight'>Feature?</mat-slide-toggle>
             </div>
             <div class="admin-text-field">
                 <mat-form-field class="admin-text" color="accent">
@@ -104,5 +105,13 @@
                 <button mat-raised-button color="accent" (click)="onSubmit('mod')">Submit</button>
             </div>
         </div>
+    </mat-tab>
+    <mat-tab label="Manage Projects">
+        <div *ngFor="let project of projects">
+            <span>{{project.title}}</span>
+            <mat-slide-toggle id="{{project._id}}" [(ngModel)]="project['highlight']">Feature</mat-slide-toggle>
+            <mat-checkbox [(ngModel)]="project['delete']">Delete</mat-checkbox>
+        </div>
+        <button (click)="onSubmit('update')">I am a test</button>
     </mat-tab>
 </mat-tab-group>

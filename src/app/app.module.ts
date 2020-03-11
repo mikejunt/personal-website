@@ -12,7 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -56,6 +57,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatTabsModule,
     MatSlideToggleModule,
+    MatCheckboxModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
