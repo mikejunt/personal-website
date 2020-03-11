@@ -15,12 +15,11 @@ router.post('/new', (req, res) => {
 })
 
 router.post('/edit', (req, res) => {
-    let tagstring = req.body.tags
-    console.log(tagstring)
-    let tags = tagstring.split(",")
-    tags.forEach(string => { string.trim()});
+    let tags = req.body.tags
+    if (typeof(tags) === "string") {
+    tags = tags.split(",")
+    tags.forEach(string => { string.trim()})};
     let post = { ...req.body, tags: tags }
-    console.log(post)
     Project.findByIdAndUpdate(post._id, post, {new: true}, (err, result) => {
         if (err) {return res.send({success: false, msg: "Could not write to database."})}
         if (result) {return res.send({success: true, msg: "Updated", data:result})}
