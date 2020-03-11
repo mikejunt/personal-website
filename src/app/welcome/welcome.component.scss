@@ -11,10 +11,15 @@
 .project-highlight-wrapper {
     flex: 0 0 100%;
     min-height: 400px;
+    box-sizing: border-box;
 }
 
 @media (min-width: 1000px) {
     .project-highlight-wrapper {
         flex: 0 0 33%;
     }
+}
+
+.p-16 {
+    padding: 16px;
 }
