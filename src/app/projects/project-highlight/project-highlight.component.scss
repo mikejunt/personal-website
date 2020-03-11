@@ -1,0 +1,42 @@
+.full-width {
+    width: 100%;
+}
+
+.project-panel {
+    height: 100%;
+}
+
+.flex-100 {
+    flex: 0 0 100%;
+}
+
+.flex-50 {
+    flex: 0 0 50%;
+}
+.flex-row-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.link-button {
+    flex: 0 0 100px;
+}
+
+.px-16 {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.py-16 {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.p-16 {
+    padding: 16px;
+}
