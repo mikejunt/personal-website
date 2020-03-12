@@ -16,17 +16,24 @@
                 <div class="detail-description-wrap">{{project.description}}</div>
                 <div class="detail-navigation-buttons flex-row">
                     <div class="detail-button-container py-8 button-center flex-row">
-                        <a href="{{project.code_url}}" class="button-link" target="_blank">
-                            <button class="button-width" mat-raised-button color="accent">Repository</button>
-                        </a>
+                        <div class="button-wrap">
+                            <a href="{{project.code_url}}" class="button-link" target="_blank">
+                                <button class="button-width" mat-raised-button color="accent">Repository</button>
+                            </a></div>
                     </div>
-                    <div class="detail-button-container py-8 button-center flex-row">
-                        <a *ngIf="project.proj_url != 'here'" class="button-link" href="{{project.proj_url}}" target="_blank">
-                            <button class="button-width" *ngIf="project.proj_url != ''" mat-raised-button
+                    <div *ngIf="project.proj_url != 'here'" class="detail-button-container py-8 button-center flex-row">
+                        <div class="button-wrap">
+                            <a class="button-link" href="{{project.proj_url}}" target="_blank">
+                                <button class="button-width" mat-raised-button color="primary">Live Deployment</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div *ngIf="project.proj_url === 'here'"
+                        class="detail-button-container py-8 button-center flex-row">
+                        <div class="button-wrap">
+                            <button class="button-width" (click)="navigate()" class="button-link" mat-raised-button
                                 color="primary">Live Deployment</button>
-                        </a>
-                        <button class="button-width" (click)="navigate()" *ngIf="project.proj_url === 'here'"
-                            mat-raised-button color="primary">Live Deployment</button>
+                        </div>
                     </div>
                 </div>
             </div>

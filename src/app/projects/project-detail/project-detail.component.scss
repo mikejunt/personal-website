@@ -57,8 +57,12 @@
     flex: 0 1 100%;
 }
 
-.button-link {
-    display: -webkit-box;
+.button-wrap {
+    display: flex;
     flex-direction: column;
     justify-content: flex-end;
+}
+
+.button-link {
+    flex: 0 0 auto;
 }
