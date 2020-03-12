@@ -1,4 +1,4 @@
-<div class="full-width project-panel">
+<div *ngIf="feature !=undefined" class="full-width project-panel">
     <header class="project-header">{{feature.title}}</header>
     <div class="flex-row-container p-16">
         <div class="flex-100">{{feature.description}}</div>
@@ -12,20 +12,24 @@
         <div class="flex-100 flex-row-container flex-space">
             <div class="flex-33 flex-row-container flex-left">
                 <a class="link-button-container" href="{{feature.code_url}}">
-                    <button *ngIf="!mobileQuery.matches" class="link-button"mat-raised-button color="accent">See Code</button>
+                    <button *ngIf="!mobileQuery.matches" class="link-button" mat-raised-button color="accent">See
+                        Code</button>
                     <button *ngIf="mobileQuery.matches" class="" mat-fab color="accent">Code</button>
                 </a>
             </div>
             <div *ngIf="feature.proj_url != ''" class="flex-33 flex-row-container flex-center">
                 <a class="link-button-container" href="{{feature.proj_url}}" target="_blank">
-                    <button *ngIf="!mobileQuery.matches" class="link-button"mat-raised-button color="primary">See it Live</button>
+                    <button *ngIf="!mobileQuery.matches" class="link-button" mat-raised-button color="primary">See it
+                        Live</button>
                     <button *ngIf="mobileQuery.matches" class="" mat-fab color="primary">Live!</button>
                 </a>
             </div>
             <div class="flex-33 flex-row-container flex-right">
                 <div class="link-button-container">
-                    <button *ngIf="!mobileQuery.matches" class="link-button"(click)="projectnav(highlightid)" mat-raised-button color="accent">More Details</button>
-                    <button *ngIf="mobileQuery.matches" class="" (click)="projectnav(highlightid)" mat-fab color="accent">More..</button>
+                    <button *ngIf="!mobileQuery.matches" class="link-button" (click)="projectnav(highlightid)"
+                        mat-raised-button color="accent">More Details</button>
+                    <button *ngIf="mobileQuery.matches" class="" (click)="projectnav(highlightid)" mat-fab
+                        color="accent">More..</button>
                 </div>
             </div>
         </div>

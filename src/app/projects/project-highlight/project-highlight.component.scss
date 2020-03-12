@@ -58,3 +58,9 @@
 .p-16 {
     padding: 16px;
 }
+
+@media (max-width: 420px) {
+    .flex-left,.flex-right {
+        justify-content: space-around;
+    }
+}
