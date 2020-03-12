@@ -16,12 +16,12 @@
                 <div class="detail-description-wrap">{{project.description}}</div>
                 <div class="detail-navigation-buttons flex-row">
                     <div class="detail-button-container py-8 button-center flex-row">
-                        <a href="{{project.code_url}}" target="_blank">
+                        <a href="{{project.code_url}}" class="button-link" target="_blank">
                             <button class="button-width" mat-raised-button color="accent">Repository</button>
                         </a>
                     </div>
                     <div class="detail-button-container py-8 button-center flex-row">
-                        <a *ngIf="project.proj_url != 'here'" href="{{project.proj_url}}" target="_blank">
+                        <a *ngIf="project.proj_url != 'here'" class="button-link" href="{{project.proj_url}}" target="_blank">
                             <button class="button-width" *ngIf="project.proj_url != ''" mat-raised-button
                                 color="primary">Live Deployment</button>
                         </a>
