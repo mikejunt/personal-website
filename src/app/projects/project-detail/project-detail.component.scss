@@ -1,3 +1,28 @@
 .detail-wrapper {
     padding: 16px;
 }
+
+.p-16 {
+    padding: 16px;
+}
+
+.py-16 {
+    padding: 16px 0;
+}
+
+.detail-navigation-buttons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.detail-button-container {
+    flex: 1 0 50%;
+}
+
+.button-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}

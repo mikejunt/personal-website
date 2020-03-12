@@ -74,7 +74,6 @@ export class AdminpanelComponent implements OnInit {
 
 
   onSubmit(mode: string) {
-    console.log(this.isAdmin, "admin state")
     if (this.isAdmin) {
       if (mode === "new") {
         this.submitNew()

@@ -1,16 +1,27 @@
-<div class="detail-wrapper">
+<div *ngIf="project != undefined" class="detail-wrapper">
     <div class="project-panel">
         <header class="project-header">{{project.title}}</header>
-        <div class="tag-chip-container">
-            <mat-chip-list>
-                <mat-chip *ngFor="let tag of project['tags'];index as i" selected color="accent">{{project['tags'][i]}}
-                </mat-chip>
-            </mat-chip-list>
-        </div>
-        <div class="detail-description-wrap">{{project.description}}</div>
-        <div class="detail-navigation-buttons">
-            <button mat-raised-button color="accent">{{project.code_url}}</button>
-            <button mat-raised-button color="accent">{{project.proj_url}}</button>
+        <div class='p-16'>
+            <div class="tag-chip-container">
+                <mat-chip-list>
+                    <mat-chip *ngFor="let tag of project['tags'];index as i" selected color="accent">
+                        {{project['tags'][i]}}
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+            <div class="detail-description-wrap py-16">{{project.description}}</div>
+            <div class="detail-navigation-buttons">
+                <div class="detail-button-container button-center">
+                    <a href="{{project.code_url}}" target="_blank">
+                        <button mat-raised-button color="accent">Repository</button>
+                    </a>
+                </div>
+                <div class="detail-button-container button-center">
+                    <a href="{{project.proj_url}}" target="_blank">
+                        <button *ngIf="project.proj_url != ''" mat-raised-button color="primary">Live Deployment</button>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

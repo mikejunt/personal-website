@@ -12,15 +12,13 @@
         <div class="flex-100 flex-row-container flex-space">
             <div class="flex-33 flex-row-container flex-left">
                 <a class="link-button-container" href="{{feature.code_url}}">
-                    <button *ngIf="!mobileQuery.matches" class="link-button" mat-raised-button color="accent">See
-                        Code</button>
+                    <button *ngIf="!mobileQuery.matches" class="link-button" mat-raised-button color="accent">See Code</button>
                     <button *ngIf="mobileQuery.matches" class="" mat-fab color="accent">Code</button>
                 </a>
             </div>
             <div *ngIf="feature.proj_url != ''" class="flex-33 flex-row-container flex-center">
                 <a class="link-button-container" href="{{feature.proj_url}}" target="_blank">
-                    <button *ngIf="!mobileQuery.matches" class="link-button" mat-raised-button color="primary">See it
-                        Live</button>
+                    <button *ngIf="!mobileQuery.matches" class="link-button" mat-raised-button color="primary">See it Live</button>
                     <button *ngIf="mobileQuery.matches" class="" mat-fab color="primary">Live!</button>
                 </a>
             </div>
