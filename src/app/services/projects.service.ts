@@ -21,11 +21,11 @@ export class ProjectsService {
   }
 
   saveProject(project: Project) {
-    this.http.post('/api/projects/new', project).subscribe(res=>{this.getFeatures;this.getProjects()})
+    this.http.post('/api/projects/new', project).subscribe(res=>{this.getFeatures();this.getProjects()})
   }
 
   editProject(project: Project) {
-    this.http.post('/api/projects/edit', project).subscribe(res=>{this.getFeatures;this.getProjects()})
+    this.http.post('/api/projects/edit', project).subscribe(res=>{this.getFeatures();this.getProjects()})
   }
 
   deleteProjects(ids: string[]) {

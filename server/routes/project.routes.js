@@ -22,7 +22,7 @@ router.post('/edit', (req, res) => {
     tags.forEach(string => { string.trim()})
     tags = tags.filter(t=>t != "")};
     let post = { ...req.body, tags: tags }
-    Project.findByIdAndUpdate(post._id, post, {new: true}, (err, result) => {
+    Project.findByIdAndUpdate(post._id, post, {new: true, useFindAndModify: false}, (err, result) => {
         if (err) {return res.send({success: false, msg: "Could not write to database."})}
         if (result) {return res.send({success: true, msg: "Updated", data:result})}
     })

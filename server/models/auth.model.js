@@ -9,6 +9,7 @@ function logIn(request,response) {
         if (!result) {
             return response.send({ success: false, msg: "Username or password invalid." })
         }
+        console.log("Admin login")
         return response.send({ success: true, msg: "Its Mike" })
     })
 }
