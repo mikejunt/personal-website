@@ -23,8 +23,26 @@
     align-items: center;
 }
 
+.flex-right {
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.flex-left {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-space {
+    justify-content: space-between;
+}
+
+.link-button-container {
+    flex: 0 0 auto;
+}
+
 .link-button {
-    flex: 0 0 100px;
+    width: 112px;
 }
 
 .px-16 {
