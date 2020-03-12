@@ -1,3 +1,16 @@
-<p>{{project.title}} {{project._id}}</p>
-<p><a href="project.code_url">Link to Project</a></p>
-<p>{{project.description}}</p>
+<div class="detail-wrapper">
+    <div class="project-panel">
+        <header class="project-header">{{project.title}}</header>
+        <div class="tag-chip-container">
+            <mat-chip-list>
+                <mat-chip *ngFor="let tag of project['tags'];index as i" selected color="accent">{{project['tags'][i]}}
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+        <div class="detail-description-wrap">{{project.description}}</div>
+        <div class="detail-navigation-buttons">
+            <button mat-raised-button color="accent">{{project.code_url}}</button>
+            <button mat-raised-button color="accent">{{project.proj_url}}</button>
+        </div>
+    </div>
+</div>
