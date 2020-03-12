@@ -4,6 +4,7 @@ import { AppState } from 'src/app/store';
 import * as Selectors from '../../store/selectors'
 import { Observable } from 'rxjs';
 import { Project } from 'src/app/interfaces/project.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-detail',
@@ -17,7 +18,7 @@ export class ProjectDetailComponent implements OnInit {
   projects: Project[]
   project: Project
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private router: Router) {
     this.curproj$ = this.store.select(Selectors.viewCurrentProject)
     this.projects$ = this.store.select(Selectors.viewAllProjects)
     this.projects$.subscribe(res => {this.projects = [...res];if (this.curproj === ""){this.project = this.projects[0]}})
@@ -29,6 +30,10 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  navigate() {
+    this.router.navigate(['/admin'])
   }
 
 }

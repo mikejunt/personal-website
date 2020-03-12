@@ -19,7 +19,7 @@ export class ProjectOverviewComponent implements OnInit {
   private mobileQueryListener: () => void
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private store: Store<AppState>) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = media.matchMedia('(max-width: 750px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
     this.projects$ = this.store.select(Selectors.viewAllProjects)
