@@ -17,7 +17,7 @@
                 </a>
             </div>
             <div *ngIf="feature.proj_url != ''" class="flex-33 flex-row-container flex-center">
-                <a class="link-button-container" href="{{feature.proj_url}}">
+                <a class="link-button-container" href="{{feature.proj_url}}" target="_blank">
                     <button *ngIf="!mobileQuery.matches" class="link-button"mat-raised-button color="primary">See it Live</button>
                     <button *ngIf="mobileQuery.matches" class="" mat-fab color="primary">Live!</button>
                 </a>

@@ -51,6 +51,12 @@ export class AdminpanelComponent implements OnInit {
   ngOnInit(): void {
     this.newProject = { ...this.newProjectTemplate }
     this.modProject = { ...this.newProjectTemplate }
+    if (this.isAdmin) {
+      this.snackbar.open("Hello, me.", "OK", {duration: 5000})
+    }
+    if (!this.isAdmin) {
+      this.snackbar.open("This page is in tour mode and you will not be able to save changes.", "OK", {duration: 10000})
+    }
   }
 
 
