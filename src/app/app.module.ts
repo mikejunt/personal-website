@@ -14,7 +14,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatChipsModule } from '@angular/material/chips'
+import { MatChipsModule } from '@angular/material/chips';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -60,6 +61,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatSlideToggleModule,
     MatCheckboxModule,
     MatChipsModule,
+    MatProgressSpinnerModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
