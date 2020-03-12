@@ -13,12 +13,12 @@
             <div class="detail-navigation-buttons">
                 <div class="detail-button-container button-center">
                     <a href="{{project.code_url}}" target="_blank">
-                        <button mat-raised-button color="accent">Repository</button>
+                        <button class="button-width" mat-raised-button color="accent">Repository</button>
                     </a>
                 </div>
                 <div class="detail-button-container button-center">
                     <a href="{{project.proj_url}}" target="_blank">
-                        <button *ngIf="project.proj_url != ''" mat-raised-button color="primary">Live Deployment</button>
+                        <button class="button-width" *ngIf="project.proj_url != ''" mat-raised-button color="primary">Live Deployment</button>
                     </a>
                 </div>
             </div>

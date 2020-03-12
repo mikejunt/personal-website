@@ -203,6 +203,12 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   @include angular-material-theme($altTheme);
 }
 
+.mat-chip-list-wrapper {
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .mat-raised-button, .mat-stroked-button, .mat-flat-button {
   padding: 0 1.15em;
   margin: 0 .65em;
