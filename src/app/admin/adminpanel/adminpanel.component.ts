@@ -7,6 +7,7 @@ import { AppState } from 'src/app/store';
 import * as Selectors from '../../store/selectors';
 import * as Actions from '../../store/actions'
 import * as qclone from 'qclone'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-adminpanel',
@@ -19,6 +20,8 @@ export class AdminpanelComponent implements OnInit {
   viewproj$: Observable<string>
   viewproj: string
   selproj: string
+  isAdmin$: Observable<boolean>
+  isAdmin: boolean
 
   newProjectTemplate: Project = {
     title: "",
@@ -33,14 +36,16 @@ export class AdminpanelComponent implements OnInit {
   newProject: Project
   modProject: Project
 
-  constructor(private projectsvc: ProjectsService, private store: Store<AppState>) {
+  constructor(private projectsvc: ProjectsService, private store: Store<AppState>, private snackbar: MatSnackBar) {
     this.viewproj$ = this.store.select(Selectors.viewCurrentProject)
     this.projects$ = this.store.select(Selectors.viewAllProjects)
     this.projects$.subscribe(res => { if (res.length != 0) { this.projects = qclone.qclone(res) } })
     this.viewproj$.subscribe(res => {
-    this.viewproj = res; let filtered = this.projects.filter(obj => obj._id === this.viewproj);
+      this.viewproj = res; let filtered = this.projects.filter(obj => obj._id === this.viewproj);
       if (filtered.length != 0) { this.modProject = qclone.qclone(filtered[0]) }
     })
+    this.isAdmin$ = this.store.select(Selectors.viewAdminUser)
+    this.isAdmin$.subscribe(res => this.isAdmin = res)
   }
 
   ngOnInit(): void {
@@ -63,14 +68,20 @@ export class AdminpanelComponent implements OnInit {
 
 
   onSubmit(mode: string) {
-    if (mode === "new") {
-      this.submitNew()
+    console.log(this.isAdmin, "admin state")
+    if (this.isAdmin) {
+      if (mode === "new") {
+        this.submitNew()
+      }
+      if (mode === "mod") {
+        this.submitEdit()
+      }
+      if (mode === "update") {
+        this.submitUpdates()
+      }
     }
-    if (mode === "mod") {
-      this.submitEdit()
-    }
-    if (mode === "update") {
-      this.submitUpdates()
+    else {
+      this.snackbar.open("You aren't me, so your access is read-only.", "OK", {duration: 20000})
     }
   }
 
@@ -85,7 +96,7 @@ export class AdminpanelComponent implements OnInit {
     this.projects.forEach(obj => {
       if (obj['highlight']) { feature.push(obj._id) }
       if (obj['delete']) { todelete.push(obj._id) }
-      if (!obj['delete'] && !obj['highlight']) {nofeature.push(obj._id)}
+      if (!obj['delete'] && !obj['highlight']) { nofeature.push(obj._id) }
     })
     this.projectsvc.setFeatureProjects(feature)
     this.projectsvc.removeFeatureProjects(nofeature)

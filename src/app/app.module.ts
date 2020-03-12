@@ -16,6 +16,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -62,6 +63,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCheckboxModule,
     MatChipsModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {
       metaReducers,

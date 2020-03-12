@@ -13,8 +13,7 @@ export class AuthService {
   login(username, password) {
     let user = { username: username, password: password }
     this.http.post('/api/auth/login', user).subscribe(res => {
-      if (!res[`success`]) { return false }
-      this.store.dispatch(Actions.setAdminUser())
+      if (res[`success`]) { this.store.dispatch(Actions.setAdminUser()) }
       this.router.navigate(['/admin/'])
       return true
     })
