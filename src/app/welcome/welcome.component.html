@@ -2,5 +2,5 @@
     <div class="welcome-landing">Large Landing area</div>
     <div class="project-highlight-wrapper p-16"><app-project-highlight [highlightid]="0"></app-project-highlight></div>
     <div class="project-highlight-wrapper p-16"><app-project-highlight [highlightid]="1"></app-project-highlight></div>
-    <div class="project-highlight-wrapper p-16"><app-project-highlight [highlightid]="2"></app-project-highlight></div>
+    <div *ngIf="featureids[2]" class="project-highlight-wrapper p-16"><app-project-highlight [highlightid]="2"></app-project-highlight></div>
 </div>

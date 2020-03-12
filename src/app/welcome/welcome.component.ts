@@ -16,7 +16,7 @@ export class WelcomeComponent implements OnInit {
 
   constructor(private store: Store<AppState>) {this.features$ = this.store.select(Selectors.viewFeatures)
   this.features$.subscribe(res=> 
-    {if (res.length != 0) {res.forEach(obj => {this.featureids.push(obj["_id"])})}}) }
+    {if (res.length != 0) {res.forEach(obj => {this.featureids.push(obj["_id"])})}console.log(this.featureids)}) }
 
   ngOnInit(): void { 
   }
