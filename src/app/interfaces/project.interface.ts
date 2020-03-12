@@ -6,5 +6,6 @@ export interface Project {
     summary: string,
     description: string,
     tags: string[] | string,
-    highlight: boolean
+    highlight: boolean,
+    views?: number
 }

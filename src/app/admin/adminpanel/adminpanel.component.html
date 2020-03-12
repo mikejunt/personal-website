@@ -8,9 +8,9 @@
                 </mat-form-field>
             </div>
             <div class="admin-text-field">
-                <mat-form-field class="admin-text-length" color="accent">
+                <mat-form-field class="admin-summary-length" color="accent">
                     <mat-label for="summary">Project Summary</mat-label>
-                    <input matInput name='summary' [(ngModel)]='newProject.summary'>
+                    <textarea matInput class="admin-summary-length" name='summary' [(ngModel)]='newProject.summary'></textarea>
                 </mat-form-field>
             </div>
             <div class="admin-url-field">
@@ -38,8 +38,7 @@
             <div class="admin-text-field">
                 <mat-form-field class="admin-text" color="accent">
                     <mat-label for="description">Project Description</mat-label>
-                    <textarea class="admin-text" name='description' matInput
-                        [(ngModel)]='newProject.description'></textarea>
+                    <textarea class="admin-text" name='description' matInput [(ngModel)]='newProject.description'></textarea>
                 </mat-form-field>
             </div>
             <div class="admin-field">
@@ -60,16 +59,14 @@
                     <mat-label for="feature">Project to Edit</mat-label>
                     <mat-select name='feature' (ngModelChange)="selProj($event)" [(ngModel)]='selproj'>
                         <mat-option>Select a Project</mat-option>
-                        <mat-option *ngFor="let project of projects" value="{{project._id}}">{{project.title}}
-                        </mat-option>
-
+                        <mat-option *ngFor="let project of projects" value="{{project._id}}">{{project.title}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
             <div class="admin-text-field">
-                <mat-form-field class="admin-text-length" color="accent">
+                <mat-form-field class="admin-summary-length" color="accent">
                     <mat-label for="summary">Project Summary</mat-label>
-                    <input matInput name='summary' [(ngModel)]='modProject.summary'>
+                    <textarea matInput name='summary' [(ngModel)]='modProject.summary'></textarea>
                 </mat-form-field>
             </div>
             <div class="admin-url-field">
@@ -97,8 +94,7 @@
             <div class="admin-text-field">
                 <mat-form-field class="admin-text" color="accent">
                     <mat-label for="description">Project Description</mat-label>
-                    <textarea class="admin-text" name='description' matInput
-                        [(ngModel)]='modProject.description'></textarea>
+                    <textarea class="admin-text" name='description' matInput [(ngModel)]='modProject.description'></textarea>
                 </mat-form-field>
             </div>
             <div class="admin-field">

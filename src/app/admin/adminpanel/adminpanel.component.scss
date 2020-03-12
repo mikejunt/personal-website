@@ -34,7 +34,7 @@
 .admin-text {
     width: 100%;
     max-width: 750px;
-    min-height: 180px;
+    min-height: 150px;
 }
 
 .admin-toggle {
@@ -63,4 +63,10 @@
 
 .admin-text-length {
     width: 350px;
+}
+
+.admin-summary-length {
+    width: 750px;
+    overflow: auto;
+    min-height: 50px;
 }
