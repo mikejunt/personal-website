@@ -207,7 +207,7 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   margin: 0 !important;
   width: 100%;
   box-sizing: border-box;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .mat-raised-button, .mat-stroked-button, .mat-flat-button {

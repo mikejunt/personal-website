@@ -2,7 +2,7 @@
     <div class="project-panel">
         <header class="project-header">{{project.title}}</header>
         <div class='p-16 flex-row'>
-            <div *ngIf="!project.img_url" class="image-container flex-row">
+            <div *ngIf="project.img_url" class="image-container flex-row">
                 <div class="flex-100"><img src='../../../assets/200px.png'></div>
                 <div class="flex-100">
                     <mat-chip-list>
@@ -13,7 +13,14 @@
                 </div>
             </div>
             <div class="detail-body">
-                <div class="detail-description-wrap">{{project.description}}</div>
+                <div *ngIf="!project.img_url" class="detail-description-wrap pb-16">
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let tag of project['tags'];index as i" selected color="accent">
+                            {{project['tags'][i]}}
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
+                <div class="detail-description-wrap pb-16">{{project.description}}</div>
                 <div class="detail-navigation-buttons flex-row">
                     <div class="detail-button-container button-center flex-row">
                         <div class="button-wrap">
@@ -21,16 +28,13 @@
                                 <button class="button-width" mat-raised-button color="accent">Repository</button>
                             </a></div>
                     </div>
-                    <div *ngIf="project.proj_url != 'here'" class="detail-button-container button-center flex-row">
-                        <div class="button-wrap">
+                    <div *ngIf="project.proj_url" class="detail-button-container button-center flex-row">
+                        <div *ngIf="project.proj_url != 'here'" class="button-wrap">
                             <a class="button-link" href="{{project.proj_url}}" target="_blank">
                                 <button class="button-width" mat-raised-button color="primary">Live Deployment</button>
                             </a>
                         </div>
-                    </div>
-                    <div *ngIf="project.proj_url === 'here'"
-                        class="detail-button-container button-center flex-row">
-                        <div class="button-wrap">
+                        <div *ngIf="project.proj_url === 'here'" class="button-wrap">
                             <button class="button-width" (click)="navigate()" class="button-link" mat-raised-button
                                 color="primary">Live Deployment</button>
                         </div>
