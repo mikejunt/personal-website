@@ -204,9 +204,10 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 }
 
 .mat-chip-list-wrapper {
-  justify-content: center;
+  margin: 0 !important;
   width: 100%;
   box-sizing: border-box;
+  justify-content: space-between;
 }
 
 .mat-raised-button, .mat-stroked-button, .mat-flat-button {
