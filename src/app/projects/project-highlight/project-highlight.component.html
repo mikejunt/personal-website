@@ -24,9 +24,9 @@
             </div>
             <div class="flex-33 flex-row-container flex-right">
                 <div class="link-button-container">
-                    <button *ngIf="!mobileQuery.matches" class="link-button" (click)="projectnav(highlightid)"
+                    <button *ngIf="!mobileQuery.matches" class="link-button" (click)="projectnav(feature._id)"
                         mat-raised-button color="accent">More Details</button>
-                    <button *ngIf="mobileQuery.matches" class="" (click)="projectnav(highlightid)" mat-fab
+                    <button *ngIf="mobileQuery.matches" class="" (click)="projectnav(feature._id)" mat-fab
                         color="accent">More..</button>
                 </div>
             </div>
