@@ -30,6 +30,10 @@
     min-height: 232px;
 }
 
+img {
+    border-radius: 6px;
+}
+
 @media (max-width: 450px) {
     .holds-image {
         float: none;
