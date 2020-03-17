@@ -20,17 +20,17 @@
 
 .flex-center {
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .flex-right {
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .flex-left {
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .flex-space {
@@ -57,6 +57,11 @@
 
 .p-16 {
     padding: 16px;
+    box-sizing: border-box;
+}
+
+.fill {
+    height: calc(100% - 54px);
     box-sizing: border-box;
 }
 
