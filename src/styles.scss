@@ -128,19 +128,19 @@ $mat-dark-theme-background: (
 
 body {
   margin: 0;
-  --primary-color: #552583;
-  --primary-lighter-color: #ccbeda;
-  --primary-darker-color: #3b1666;
+  --primary-color: #3b6dba;
+  --primary-lighter-color: #c4d3ea;
+  --primary-darker-color: #2650a3;
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
 }
 
 $mat-primary: (
-  main: #552583,
-  lighter: #ccbeda,
-  darker: #3b1666,
-  200: #552583, // For slide toggle,
+  main: #3b6dba,
+  lighter: #c4d3ea,
+  darker: #2650a3,
+  200: #3b6dba, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -150,41 +150,41 @@ $mat-primary: (
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
 body {
-  --accent-color: #319b98;
-  --accent-lighter-color: #c1e1e0;
-  --accent-darker-color: #1f7f7b;
-  --text-accent-color: #{$light-primary-text};
+  --accent-color: #f5d130;
+  --accent-lighter-color: #fcf1c1;
+  --accent-darker-color: #f0c01e;
+  --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
-  --text-accent-darker-color: #{$light-primary-text};
+  --text-accent-darker-color: #{$dark-primary-text};
 }
 
 $mat-accent: (
-  main: #319b98,
-  lighter: #c1e1e0,
-  darker: #1f7f7b,
-  200: #319b98, // For slide toggle,
+  main: #f5d130,
+  lighter: #fcf1c1,
+  darker: #f0c01e,
+  200: #f5d130, // For slide toggle,
   contrast : (
-    main: $light-primary-text,
+    main: $dark-primary-text,
     lighter: $dark-primary-text,
-    darker: $light-primary-text,
+    darker: $dark-primary-text,
   )
 );
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
 body {
-  --warn-color: #ff0000;
-  --warn-lighter-color: #ffb3b3;
-  --warn-darker-color: #ff0000;
+  --warn-color: #ce0404;
+  --warn-lighter-color: #f0b4b4;
+  --warn-darker-color: #bc0202;
   --text-warn-color: #{$light-primary-text};
   --text-warn-lighter-color: #{$dark-primary-text};
   --text-warn-darker-color: #{$light-primary-text};
 }
 
 $mat-warn: (
-  main: #ff0000,
-  lighter: #ffb3b3,
-  darker: #ff0000,
-  200: #ff0000, // For slide toggle,
+  main: #ce0404,
+  lighter: #f0b4b4,
+  darker: #bc0202,
+  200: #ce0404, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
