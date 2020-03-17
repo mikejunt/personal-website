@@ -30,7 +30,23 @@
     min-height: 232px;
 }
 
-img {
+.icon-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+}
+
+.social-icons {
+    flex: 0 0 100%;
+    align-content: flex-end;
+}
+
+.icon-img {
+    max-height: 40px;
+    padding: 6px;
+}
+
+.main-image {
     border-radius: 6px;
 }
 
