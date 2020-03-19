@@ -1,9 +1,14 @@
-.icon-img {
+.icon-wrap {
     height: 46px;
     width: 46px;
     padding: 6px;
     box-sizing: border-box;
     flex: 0 0 52px;
+}
+
+.icon-img {
+    height: 32px;
+    width: 32px;
 }
 
 .header.wrapper {
@@ -27,7 +32,7 @@
 .credits {
     display: flex;
     flex-flow: row nowrap;
-    align-content: center;
+    align-items: center;
 }
 
 .flex-credit-text {
@@ -35,7 +40,7 @@
 }
 
 .flex-align {
-    flex: 0 0 auto;
+    flex: 0 1 80%;
     box-sizing: border-box;
 }
 
