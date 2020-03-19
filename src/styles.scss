@@ -1,6 +1,7 @@
 // generated with the material theme generator: materialtheme.arcsine.dev
 @import '~@angular/material/theming';
 @import './app/shared/scss/project-highlight-theme.scss';
+@import './app/shared/scss/footer-theme.scss';
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
      
@@ -128,6 +129,7 @@ $mat-dark-theme-background: (
 
 body {
   margin: 0;
+  min-height: 100vh;
   --primary-color: #3b6dba;
   --primary-lighter-color: #c4d3ea;
   --primary-darker-color: #2650a3;
@@ -198,6 +200,7 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 
 @include angular-material-theme($theme);
 @include project-highlight-theme($theme);
+@include footer-theme($theme);
 
 .theme-alternate {
   @include angular-material-theme($altTheme);

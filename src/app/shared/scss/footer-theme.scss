@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+
+@mixin footer-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+    
+    .footer-wrapper {
+        background-color: mat-color($primary);
+        color: mat-color($primary, default-contrast)
+    }
+
+    a.footer-link:link,a.footer-link:visited,a.footer-link:active {
+        color: mat-color($primary, default-contrast);
+    }
+}
