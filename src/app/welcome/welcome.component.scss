@@ -3,8 +3,14 @@
     flex-flow: row wrap;
 }
 
+.p-16 {
+    padding: 16px;
+}
+
 .welcome-landing {
     flex: 0 0 100%;
+    box-sizing: border-box;
+    max-width: 400px;
     // min-height: 500px;
 }
 

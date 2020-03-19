@@ -1,10 +1,22 @@
 <div class="welcome-page-wrapper">
-    <div class="welcome-landing">Large Landing area</div>
+    <div class="welcome-landing p-16">
+        <div class="project-panel">
+            <div class="project-header">Welcome!</div>
+            <div class="panel-content p-16">Hello there! I am Mike Juntunen, a new full-stack developer. If you'd like
+                to see
+                some of my creations, check out the projects section, where I have some operational examples. You can
+                also check out my skills, background and other personal information. If you would like to discuss a
+                project or an opportunity, please reach out to me: you can contact me via the profile page. </div>
+            <div class="panel-content p-16">I particularly enjoy devising creative and re-usable solutions to
+                challenges. Whether you need to improve your web presence with a dynamic and easily-updated application,
+                or need adaptable and creative thinking on an enterprise project, please reach out!</div>
+        </div>
+    </div>
     <div class="project-highlight-wrapper p-16">
         <app-project-highlight *ngIf="featureids != []" [highlightid]="0"></app-project-highlight>
         <mat-spinner *ngIf="featureids === []" diameter="300"></mat-spinner>
     </div>
-    <div class="project-highlight-wrapper p-16">
+    <div *ngIf="featureids[1]" class="project-highlight-wrapper p-16">
         <app-project-highlight *ngIf="featureids != []" [highlightid]="1"></app-project-highlight>
         <mat-spinner *ngIf="featureids === []" diameter="300"></mat-spinner>
     </div>
