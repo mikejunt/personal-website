@@ -3,3 +3,7 @@
     top: 0;
     z-index: 2;
 }
+
+.app-sizing {
+    min-height: calc(100vh - 144px);
+}

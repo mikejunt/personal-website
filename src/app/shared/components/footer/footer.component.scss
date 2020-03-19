@@ -1,6 +1,6 @@
 .icon-img {
-    height: 40px;
-    width: 40px;
+    height: 46px;
+    width: 46px;
     padding: 6px;
     box-sizing: border-box;
     flex: 0 0 52px;
@@ -32,4 +32,19 @@
 
 .flex-credit-text {
     flex: 0 1 100%;
+}
+
+.flex-align {
+    flex: 0 0 auto;
+    box-sizing: border-box;
+}
+
+.p-3 {
+    padding: 3px 0;
+}
+
+.vert-center {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
 }
